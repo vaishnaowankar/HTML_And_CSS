@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+.container{
+    position: relative;
+    display:flex;
+    height:100%;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    padding:20px 100px;
+}
+.container:after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    background: url("bg.jpg") no-repeat center; 
+    background-size: cover; /* fits to the screen */
+    z-index: -1; /* sends image back  */
+    filter: blur(50px);
+}
+
+.contact-box{
+    max-width: 850px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);/* MDN defines the fr unit as a unit which represents a fraction of the available space in the grid container.*/
+    /*repeat is a function here, know more about it on MDN Docs  */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+}
+
+/* All this is for the left image that appears */
+.left{
+    background: url("bg.jpg") no-repeat center;
+    background-size: cover;
+    height: 100%;
+}
+
+.right{
+    padding: 25px 40px;
+}
+
+h2{
+    position: relative;
+    padding: 0px 0px 10px;
+    margin-bottom: 10px;
+}
+
+/* all these is for the green line that appears below Contact Us */
+h2:after{
+    content: '';
+    position: absolute;
+    left: 50%; /* means shift 50 percent from left */
+    bottom: 0px; /* shift from bottom */
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #2ecc71;
+}
+
+.field{
+    width: 100%;
+    border: 2px solid rgba(0,0,0,0);
+    outline: none;
+    background-color: rgba(230,230,230,0.6);
+    padding: 0.5rem 1rem; /* rem is relative to font size of root element */
+    font-size: 1.1rem;
+    margin-bottom: 22px; /* basically to provide space between the fields */
+    transition: .3s;
+}
+
+.field:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
+textarea{
+    min-height: 150px;
+}
+
+.btn{
+    width:100%;
+    padding: 0.5rem 1rem;
+    background-color: #2ecc71;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover{
+    background-color: #27ae60;
+}
+
+.field:focus{
+    border: 2px solid rgba(30,85,250,0.47);
+    background-color: #fff;
+}
+
+
+
+/* Here comes the main part , the responsiveness */
+@media screen and (max-width : 880px){
+    .contact-box{
+        grid-template-columns: 1fr;
+    }
+    .left{
+        height: 200px;
+    }
+}
