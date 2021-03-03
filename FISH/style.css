@@ -1,0 +1,216 @@
+body{
+    display: flex;
+    height: 100vh; /* full viewport height */
+    margin: 0;
+    justify-content: center; /* to center the items */
+    place-items: center;  /* center of screen */
+    background: #3C8BD0;
+}
+
+.face{
+    height: 300px;
+    width: 290px;   
+    /* till this a box will be created in center */
+    border-radius: 50%; /* circle inside the box above */
+    background: #46A3F3;
+    box-shadow: inset 14px 0 #367fbf, inset -14px 0 #367fbf;
+    /* the shades of blue on both sides */
+    position: relative; /* to arrange further items */
+}
+
+/* this creates both eyes */
+/* they are like overlapped to each other */
+.eye{
+    position: absolute;
+    /* from the box of face */
+    height: 160px;
+    width: 150px; 
+    /* the box of eye */    
+    background: #FEFCFF;
+    border-radius: 50%;
+    top: 44px;
+    /* box of eye shifts from top relative to box of face */
+    box-shadow: inset 7px 0 #367fbf, inset -7px 0 #367fbf, inset 0 2px #367fbf ,inset 0 -2px #367fbf;
+    /* the blue shadow around eyes */
+}
+
+/* we seperate both eyes */
+.eye1{
+    left: -26px;
+}
+
+.eye2{
+    right: -26px;
+}
+/* eyes are placed at their particular position */
+
+.eye::before{
+    content: "";
+    position: absolute;
+    /* from the box of eye , because eye has its parent face which is set relative */
+    height: 120px;
+    width: 100px;
+    /* inside the eye box */
+    background: #EC5ABD;
+    border-radius: 50%;
+    top: 50%;
+    /* from eye box */
+    transform: translateY(-50%);
+    right: 6px;
+    /* from eye box */
+}
+
+.eye::after{
+    content: "";
+    position: absolute;
+    height: 90px;
+    width: 80px;
+    /* from eye box */
+    background: #373737;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 7px;
+}
+
+/* to shift the right eye properties */
+.eye2::after{
+    left: 7px;
+}
+
+.eye2::before{
+    left: 6px;
+}
+
+.pupil{
+    height: 20px;
+    width: 20px;
+    /* box attached with eye box */
+    /* because pupil's div is inside eye */
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    z-index: 10; /* brings upward */
+}
+
+.pupil{
+    right: 16px;
+}
+
+.pupil2{
+    right: 66px;
+}
+
+.mouth{
+    height: 26px;
+    width: 80px;
+    background: #373636;
+    /* box in face box */
+    border-radius: 10% 10% 35% 35% / 10% 10% 50% 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom : 60px;
+}
+
+.mouth::before{
+    height: 6px;
+    background: white;
+    width: 40px;
+    position: absolute;
+    /* inside mouth box because mouth is already placed as relative */
+    content: "";
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 4px 6px;
+}
+
+.mouth::after{
+    content: "";
+    height: 12px;
+    width: 46px;
+    background: #E36539;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 50% 50% 8px 8px;
+}
+
+.fin{
+    border-radius: 30% 30% 0 0 / 10% 10% 0 0;
+    height: 200px;
+    width: 160px;
+    /* insdie face box because fin's div is inside face div */
+    background: #f7e634;
+    position: absolute;
+    z-index: -1;
+    top: -60px;
+    left: -20px;
+    transform: rotate(-45deg);
+}
+
+.fin::before{
+    content: "";
+    background: #3c8bd0;
+    position: absolute;
+    right: -12px;
+    height: 90%;
+    width: 20px;
+    top: 22px;
+    border-radius: 50% 0 0 50%;
+}
+
+.fin::after{
+    content: "";
+    position: absolute;
+    background: #373737;
+    width:96%;
+    height: 100px;
+    border-radius: 50%;
+    top: 54px;
+    
+}
+.effect{
+    height: 14px;
+    width: 14px;
+    /* inside face box */
+    background: #408Ace;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 130px;
+    box-shadow: -6px 20px 0 -2px #408ace, -20px 10px 0 -1px #408ace, 10px 14px 0 -3px #408ace, 22px 30px 0 -4px #408ace;
+}
+
+/* construction for both the flaps */
+.flap{
+    height: 60px;
+    width: 140px;
+    background: linear-gradient(90deg, rgba(71,162,241,1) 39%, rgba(247,230,52,1) 39%, rgba(247,230,52,1) 100%);
+    border-radius: 25% 25% 77% 21% / 13% 22% 78% 53%;
+    position: absolute;
+    bottom: 20px;
+    z-index: -1;
+}
+
+.flap{
+    right: -110px;
+}
+
+.flap2{
+    left: -110px;
+    transform: rotate(180deg);
+}
+
+.flap::after{
+    content: "";
+    position: absolute;
+    height: 60px;
+    width: 50px;
+    background: #373737;
+    border-radius: 40% 0 100% 0 / 40% 0 100% 0;
+    left: 40px;
+}
